@@ -1,6 +1,4 @@
-//-------------------------------------------------------------------------
-//						mem_interface - www.verificationguide.com
-//-------------------------------------------------------------------------
+
 
 interface mem_if(input logic clk,reset);
   
@@ -49,9 +47,7 @@ interface mem_if(input logic clk,reset);
   
 endinterface
     
-    //-------------------------------------------------------------------------
-//						mem_seq_item - www.verificationguide.com 
-//-------------------------------------------------------------------------
+    
 
 class mem_seq_item extends uvm_sequence_item;
   //---------------------------------------
@@ -87,13 +83,7 @@ class mem_seq_item extends uvm_sequence_item;
   
 endclass
     
-    //-------------------------------------------------------------------------
-//						mem_sequence's - www.verificationguide.com
-//-------------------------------------------------------------------------
-
-//=========================================================================
-// mem_sequence - random stimulus 
-//=========================================================================
+  
 class mem_sequence extends uvm_sequence#(mem_seq_item);
   
   `uvm_object_utils(mem_sequence)
@@ -211,10 +201,6 @@ class wr_rd_sequence extends uvm_sequence#(mem_seq_item);
 endclass
 //=========================================================================
     
-    
-    //-------------------------------------------------------------------------
-//						mem_sequencer - www.verificationguide.com
-//-------------------------------------------------------------------------
 
 class mem_sequencer extends uvm_sequencer#(mem_seq_item);
 
@@ -229,10 +215,7 @@ class mem_sequencer extends uvm_sequencer#(mem_seq_item);
   
 endclass
     
-    //-------------------------------------------------------------------------
-//						mem_driver - www.verificationguide.com
-//-------------------------------------------------------------------------
-
+  
 `define DRIV_IF vif.DRIVER.driver_cb
 
 class mem_driver extends uvm_driver #(mem_seq_item);
@@ -297,9 +280,7 @@ class mem_driver extends uvm_driver #(mem_seq_item);
   endtask : drive
 endclass : mem_driver
     
-    //-------------------------------------------------------------------------
-//						mem_monitor - www.verificationguide.com 
-//-------------------------------------------------------------------------
+ 
 
 class mem_monitor extends uvm_monitor;
 
@@ -366,9 +347,7 @@ class mem_monitor extends uvm_monitor;
   endtask : run_phase
 
 endclass : mem_monitor
-//-------------------------------------------------------------------------
-//						mem_agent - www.verificationguide.com 
-//-------------------------------------------------------------------------
+
 
 `include "mem_seq_item.svh"
 `include "mem_sequencer.svh"
@@ -420,10 +399,7 @@ class mem_agent extends uvm_agent;
 
 endclass : mem_agent
     
-    //-------------------------------------------------------------------------
-//						mem_scoreboard - www.verificationguide.com 
-//-------------------------------------------------------------------------
-
+ 
 class mem_scoreboard extends uvm_scoreboard;
   
   //---------------------------------------
@@ -500,10 +476,7 @@ class mem_scoreboard extends uvm_scoreboard;
     end
   endtask : run_phase
 endclass : mem_scoreboard
-    //-------------------------------------------------------------------------
-//						mem_env - www.verificationguide.com
-//-------------------------------------------------------------------------
-
+   
 `include "mem_agent.svh"
 `include "mem_scoreboard.svh"
 
